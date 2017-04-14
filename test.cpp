@@ -1,8 +1,12 @@
 #include <iostream>
 #include <string.h>
 #include "printBinary.h"
-#define PR(STR, EXPR) std::cout << STR; printBinary(EXPR); std::cout << std::endl;
-#define PRINT(STR, VAL) std::cout << STR "= " << VAL << std::endl;
+
+#define PR(STR, EXPR) \
+        std::cout << STR; printBinary(EXPR); std::cout << std::endl;
+
+#define PRINT(STR, VAL) \
+        std::cout << STR " = " << VAL << std::endl;
 
 void displayNbrValue() 
         {
@@ -26,6 +30,7 @@ struct Structure
         std::string s;
 };
 
+
 // Autorisation d'une structure à faire référence à elle même
 typedef struct SelfRef
 {       
@@ -34,28 +39,66 @@ typedef struct SelfRef
 
 } SelfRef;
 
+
+// Utilisation de pointeur sur une structure
+typedef struct Structure1
+{
+        int i;
+        char c;
+
+} Structure1;
+
+
+// Type de donnée enum
+enum shape { circle = 10, triangle, carre }; // triangle = 11, carre = 12.
+
+// Economiser de la memoire avec union
+union Packed {int i; char c; double d; long l;}; // memoire utilise d'union = taille du type le plus grand -> double
+
+
+typedef struct Point
+{
+        int i;
+        int j;
+
+} Point;
+
 int main() {
 
-        SelfRef r1, r2; // r1 et r2 sont des instances de la structure SelfRef
-        
-        r1.ref = &r2;
-        r2.ref = &r1;
-        r1.i = 3;
-        r2.i = 47;
+        // Point p[10];
+        // for(int i = 0; i < 10; i++)
+        // {
+        //         p[i].i = i;
+        //         std::cout << "&p[" << i << "] = " << (long)&p[i] << std::endl;
+        // }
 
-        PRINT("pointeur sur r2 : r1.ref", r1.ref);
-        PRINT("adresse de r2 : &r2", &r2);
-        
-        // Structure s1, s2;
-        // s1.c = 'a';
-        // s1.s = "Je vais bien";
-        // s1.i = 1;
+        // int a[3];
 
-        // s2.i = 3;
-        // s2.s = "Hahah je suis s2\n";
-        // s2.c = 'b';
+        // PRINT("a", (long)a);
+        // PRINT("&a[Ø]", (long)&a[0])
 
-	// PRINT("structure s1 char ", s1.c); 
-	// PRINT("structure s2 ", s2.s);
+        // std::cout << "taille de union " << sizeof(Packed) << std::endl;
+
+        // std::cout << shape(triangle) << "; " << shape(carre) << std::endl; 
+
+        // Structure1 s1;
+        // Structure1* sp = &s1;
+        // sp->i = 3;
+        // sp->c = 'a';
+        // PRINT("valeur de s1.i : s1.i ", s1.i);
+        // PRINT("valeur de s1.i, sp->i ", sp->i);
+        // PRINT("adresse de s1", (long)&s1);
+        // PRINT("adresse de s1", sp);
+
+        int i[10];
+
+        int* ip = i;
+
+        std::cout << "l'adresse de i est : " << (long)ip << std::endl;
+        ip++;
+        std::cout << "l'adresse de i est : " << (long)ip << std::endl;
+
+
+
 	return 0;
 }
