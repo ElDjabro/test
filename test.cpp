@@ -63,32 +63,33 @@ typedef struct Point
 
 } Point;
 
+
 int main() {
 
-        // Point p[10];
-        // for(int i = 0; i < 10; i++)
-        // {
-        //         p[i].i = i;
-        //         std::cout << "&p[" << i << "] = " << (long)&p[i] << std::endl;
-        // }
+        Point p[10];
+        for(int i = 0; i < 10; i++)
+        {
+                p[i].i = i;
+                std::cout << "&p[" << i << "] = " << (long)&p[i] << std::endl;
+        }
 
-        // int a[3];
+        int a[3];
 
-        // PRINT("a", (long)a);
-        // PRINT("&a[Ø]", (long)&a[0])
+        PRINT("a", (long)a);
+        PRINT("&a[Ø]", (long)&a[0])
 
-        // std::cout << "taille de union " << sizeof(Packed) << std::endl;
+        std::cout << "taille de union " << sizeof(Packed) << std::endl;
 
-        // std::cout << shape(triangle) << "; " << shape(carre) << std::endl; 
+        std::cout << shape(triangle) << "; " << shape(carre) << std::endl; 
 
-        // Structure1 s1;
-        // Structure1* sp = &s1;
-        // sp->i = 3;
-        // sp->c = 'a';
-        // PRINT("valeur de s1.i : s1.i ", s1.i);
-        // PRINT("valeur de s1.i, sp->i ", sp->i);
-        // PRINT("adresse de s1", (long)&s1);
-        // PRINT("adresse de s1", sp);
+        Structure1 s1;
+        Structure1* sp = &s1;
+        sp->i = 3;
+        sp->c = 'a';
+        PRINT("valeur de s1.i : s1.i ", s1.i);
+        PRINT("valeur de s1.i, sp->i ", sp->i);
+        PRINT("adresse de s1", (long)&s1);
+        PRINT("adresse de s1", sp);
 
         int i[10];
 
@@ -98,7 +99,7 @@ int main() {
         ip++;
         std::cout << "l'adresse de i est : " << (long)ip << std::endl;
 
-
+     
 
 	return 0;
 }
